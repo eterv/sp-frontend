@@ -177,7 +177,6 @@ export const draggingDateIndex = writable(-1);
 export const draggingId = writable(-1);
 
 export const sideLength = writable(0);
-export const listLength = derived(sideLength, ($sideLen) => $sideLen * 2 + 1);
 
 export const currentDate = writable(getDateString());
 export const dates = derived(

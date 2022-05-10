@@ -1,25 +1,25 @@
 <script lang="ts">
+  import TodoContainer from './components/TodoContainer.svelte';
+  import { loadTodosFromStorage, sideLength } from './store';
+  import { debounce } from './utils';
+
+  const onWindowResize = () =>
+    sideLength.set(
+      window.innerWidth < 1200 ? 0 : window.innerWidth < 2000 ? 1 : 2
+    );
+  onWindowResize();
+
+  loadTodosFromStorage();
 </script>
 
+<svelte:window on:resize={debounce(onWindowResize)} />
+
 <main>
-  <div>Frontend Project</div>
+  <TodoContainer />
 </main>
 
 <style lang="scss">
-:root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-main {
-  text-align: center;
-  padding: 1em;
-  margin: 0 auto;
-}
-
-@media (min-width: 480px) {
-  p {
-    max-width: none;
+  :root {
+    font-family: 'Noto Sans KR', sans-serif;
   }
-}
 </style>
