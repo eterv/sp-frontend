@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { currentDate, sideLength } from '@/store';
+  import { currentDate } from '@/store';
   import { getNextDateString } from '@/utils';
 
   const moveDate = (n: number) => {
@@ -7,7 +7,7 @@
   };
 </script>
 
-<nav class:mobile={!$sideLength}>
+<nav>
   <svg
     class="arrow left"
     width="64"
@@ -37,33 +37,35 @@
 <style lang="scss">
   nav {
     .arrow {
-      position: fixed;
-      top: 50%;
-      margin-top: -32px;
-      fill: #888;
-      cursor: pointer;
-
-      &.left {
-        left: 0;
-      }
-      &.right {
-        right: 0;
-      }
-    }
-
-    &.mobile .arrow {
       position: absolute;
       top: 0;
       width: 20px;
       height: 20px;
       margin-top: 20px;
       fill: #666;
+      cursor: pointer;
 
       &.left {
-        margin-left: 20px;
+        left: 30px;
       }
       &.right {
-        margin-right: 20px;
+        right: 30px;
+      }
+
+      @media (min-width: 1200px) {
+        position: fixed;
+        top: 50%;
+        width: 64px;
+        height: 64px;
+        margin-top: -32px;
+        fill: #888;
+
+        &.left {
+          left: 0;
+        }
+        &.right {
+          right: 0;
+        }
       }
     }
   }
