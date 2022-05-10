@@ -52,18 +52,26 @@
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      width: 327px + 40px;
+      width: 327px;
 
       overflow: hidden;
 
       .list {
         flex: 1;
         margin-top: 20px;
-        padding: 10px 20px;
+        padding: 10px 0;
       }
 
       &:not(:first-child) .list {
         border-left: 1px solid #ccc;
+      }
+
+      @media (min-width: 480px) {
+        width: 327px + 40px;
+
+        .list {
+          padding: 10px 20px;
+        }
       }
     }
 
