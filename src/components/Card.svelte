@@ -170,13 +170,12 @@
 
     &.add {
       border: 1px solid #000;
-      background-color: white;
+      background-color: #fff;
       color: #000;
     }
 
     &.editing {
       background-color: #081f5c;
-      color: #fff;
 
       &:focus {
         outline: none;

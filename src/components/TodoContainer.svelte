@@ -68,6 +68,11 @@
     }
 
     .date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
       text-align: center;
 
       .y {

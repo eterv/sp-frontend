@@ -41,7 +41,7 @@
       top: 0;
       width: 20px;
       height: 20px;
-      margin-top: 20px;
+      margin-top: 30px;
       fill: #666;
       cursor: pointer;
 
