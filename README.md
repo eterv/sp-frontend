@@ -1,48 +1,34 @@
-# Svelte + TS + Vite
+# Todo App
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+## 기술 스택
 
-## Recommended IDE Setup
+Svelte + SCSS + TypeScript
 
-[VSCode](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## 필수 동작 체크리스트
 
-## Need an official Svelte framework?
+- [x] 해상도에 따라 변화하는 반응형 웹앱은 css(scss)로 구현되어야 합니다.
+- [x] 새로운 일정을 입력할 때 내용, 날짜(시간제외), 우선순위 총 3가지 데이터를 가집니다.
+- [x] 내용은 최대 20자까지 입력 가능하며, 그 이상 입력 시 입력된 글씨가 빨간색으로 변하며, 더 이상 입력되지 않습니다.
+- [x] 일정이 추가되면, '할 일' 섹션의 숫자가 1추가됩니다.
+- [x] 일정이 새롭게 추가되면 '할 일' 섹션에서 가장 하단에 추가됩니다.
+- [x] 일정 추가 시 남색(Navy)카드가 추가되며, 취소/완료 버튼이 카드 하단에 생성됩니다.
+- [x] 카드 선택 시 탭한 카드는 파랑(Blue)로 노출되며, 삭제/수정/완료 버튼이 카드 하단에 생성됩니다.
+- [x] 일정 수정 시 할성화된 카드는 남색(Navy)로 노출되며, 취소/완료 버튼이 카드 하단에 생성됩니다.
+- [x] 일정이 새로 등록되거나, 수정 완료된 카드는 밝은 파랑(Light Blue)로 노출합니다.
+- [x] 일정 완료 시 카드는 '끝난 일' 섹션 가장 상단으로 이동하며 밑줄 처리됩니다.
+- [x] 완료된 일정으로 추가된 카드가 있는 경우 '끝난 일' 섹션에서 숫자가 1추가됩니다.
+- [x] 일정표에서 기존 일정은 일별(day)로 확인 할 수 있습니다.
+- [x] 일정표에서 기존 일정을 클릭(탭)하여 내용을 삭제/수정/완료 할 수 있습니다.
+- [x] 일정표에서 우선순위는 일정박스를 상하로 드래그하여 수정할 수 있습니다.
+- [x] 만들어진 일정과 완료된 일정에 대한 전체 개수를 각 섹션 상단에서 확인할 수 있습니다.
+- [x] 일정표 상단의 좌우 이동할 수 있는 버튼을 통해 어제날짜, 내일날짜로 이동할 수 있습니다.
+- [x] 일정표에서 기존 일정 카드를 왼쪽으로 50% 이상 드래그(슬라이딩)하여 삭제할 수 있습니다.
+- [x] 일정표에서 기존 일정 카드를 오른쪽으로 50% 드래그(슬라이딩)하여 일정을 완료할 수 있습니다.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## 부가 기능
+- [x] 일정 추가 또는 수정시 입력 필드에서 ESC키를 누르면 취소, 엔터키를 누르면 완료 됩니다.
+- [x] 할 일 섹션에서만이 아니라 끝난 일 섹션에서도 드래그(슬라이딩)하여 삭제할 수 있습니다.
 
-## Technical considerations
+##
 
-**Why use this over SvelteKit?**
-
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-  `vite dev` and `vite build` wouldn't work in a SvelteKit environment, for example.
-
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+Made By Lucas Choi (2022)
