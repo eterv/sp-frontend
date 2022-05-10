@@ -40,7 +40,6 @@ function createTodoList() {
 
   const add = (text: string) => {
     const dateIndex = get(todosAddingDateIndex);
-    console.log(text);
 
     update((v) => {
       v.push({
