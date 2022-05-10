@@ -23,9 +23,10 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   ignorePatterns: ['dist'],
   settings: {
     'svelte3/typescript': true,
   },
-}
+};
