@@ -29,6 +29,12 @@ Svelte + SCSS + TypeScript
 - [x] 일정 추가 또는 수정시 입력 필드에서 ESC키를 누르면 취소, 엔터키를 누르면 완료 됩니다.
 - [x] 할 일 섹션에서만이 아니라 끝난 일 섹션에서도 드래그(슬라이딩)하여 삭제할 수 있습니다.
 
+## 배포
+
+테스트를 위해 Vercel에 배포하였습니다.
+
+https://sp-frontend.vercel.app/
+
 ##
 
 Made By Lucas Choi (2022)
